@@ -6,7 +6,7 @@ RUN go build
 
 FROM ubuntu
 WORKDIR /app
-COPY --from=builder /app/gin-template /app/gin-template
+COPY --from=builder /app/template /app/template
 ENV GIN_MODE=release
 RUN apt update
 RUN apt install -y --no-install-recommends ca-certificates curl
