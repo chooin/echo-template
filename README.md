@@ -6,7 +6,7 @@
 go mod download
 ```
 
-### Start the dev server
+### Start Server
 
 ```shell
 # debug
