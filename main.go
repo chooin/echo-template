@@ -2,10 +2,13 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"template/config"
 	"template/controllers/auth"
 )
 
 func main() {
+	config.Config()
+	
 	r := gin.Default()
 
 	Auth := r.Group("/v1/auth")

@@ -1,6 +1,6 @@
 # gin-template
 
-### install
+### Installation
 
 ```shell
 go mod download
