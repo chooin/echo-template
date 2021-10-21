@@ -8,7 +8,7 @@ import (
 
 func main() {
 	config.Config()
-	
+
 	r := gin.Default()
 
 	Auth := r.Group("/v1/auth")
