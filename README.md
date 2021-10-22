@@ -12,9 +12,6 @@ go mod download
 # debug
 go run main.go
 
-# test
-MODE=.env.test go run main.go
-
 # production
-MODE=.env.production go run main.go
+MODE=.env.example go run main.go
 ```

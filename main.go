@@ -1,20 +1,11 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"template/config"
-	"template/controllers/auth"
+	"app/config"
+	"app/routes"
 )
 
 func main() {
 	config.Config()
-
-	r := gin.Default()
-
-	Auth := r.Group("/v1/auth")
-	{
-		Auth.GET("/login", auth.Login)
-	}
-
-	_ = r.Run("0.0.0.0:8080")
+	routes.Run("0.0.0.0:8080")
 }

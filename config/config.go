@@ -10,7 +10,7 @@ import (
 func Config()  {
 	env := os.Getenv("MODE")
 	if env == "" {
-		godotenv.Load(".env.development")
+		godotenv.Load(".env")
 	} else {
 		godotenv.Load(env)
 	}

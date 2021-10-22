@@ -2,10 +2,11 @@ package auth
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func Login(c *gin.Context)  {
-	 c.JSON(200, gin.H{
+	 c.JSON(http.StatusOK, gin.H{
 		"message": "OK",
 		"gin_mode": gin.Mode(),
 	})
