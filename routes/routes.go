@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Run(addr string)  {
+func Routes() *gin.Engine {
 	r := gin.New()
 
 	v1 := r.Group("/v1")
@@ -20,5 +20,5 @@ func Run(addr string)  {
 		v1.GET("/health", health.Get)
 	}
 
-	_ = r.Run(addr)
+	return r
 }

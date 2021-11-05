@@ -7,5 +7,5 @@ import (
 
 func main() {
 	config.Config()
-	routes.Run("0.0.0.0:8080")
+	_ = routes.Routes().Run("0.0.0.0:8080")
 }

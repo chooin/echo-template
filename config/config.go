@@ -10,9 +10,15 @@ import (
 func Config()  {
 	env := os.Getenv("MODE")
 	if env == "" {
-		godotenv.Load(".env")
+		err := godotenv.Load(".env")
+		if err != nil {
+			panic("failed to load dotenv")
+		}
 	} else {
-		godotenv.Load(env)
+		err := godotenv.Load(env)
+		if err != nil {
+			panic("failed to load dotenv")
+		}
 	}
 	appDebug, err := strconv.ParseBool(os.Getenv("APP_DEBUG"))
 	if err == nil {

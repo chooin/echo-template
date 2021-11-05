@@ -12,6 +12,6 @@ go mod download
 # debug
 go run main.go
 
-# production
+# start server with dotenv files
 MODE=.env.example go run main.go
 ```
