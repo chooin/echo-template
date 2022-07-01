@@ -4,7 +4,7 @@ ENV GOPROXY=https://goproxy.cn
 WORKDIR /app
 COPY . .
 RUN go mod download
-RUN go env && go build
+RUN go env && go build -o app .
 
 FROM alpine:latest
 WORKDIR /app
