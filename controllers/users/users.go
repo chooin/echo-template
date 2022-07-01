@@ -1,16 +1,17 @@
 package users
 
 import (
-	"app/requests"
+	"app/models"
+	"app/pkg"
 	"github.com/labstack/echo/v4"
 	"net/http"
 )
 
 func Get(e echo.Context) error {
-	var user requests.User
-	if err := e.Bind(&user); err != nil {
-		return e.String(404, "Not Found")
-	}
+	userId := e.Param("id")
 
-	return e.String(http.StatusOK, "Halo")
+	var user models.User
+	pkg.DB().Model(&models.User{}).Where("id = ?", userId).First(&user)
+
+	return e.JSON(http.StatusOK, user)
 }

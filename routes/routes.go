@@ -19,7 +19,7 @@ func Routes(e *echo.Echo) {
 		// users
 		v1Users := v1.Group("/users")
 		{
-			v1Users.POST("/:id", users.Get)
+			v1Users.GET("/:id", users.Get)
 		}
 
 		v1.GET("/health", health.Get)
