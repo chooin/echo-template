@@ -6,6 +6,8 @@ require (
 	github.com/go-playground/assert/v2 v2.0.1
 	github.com/joho/godotenv v1.4.0
 	github.com/labstack/echo/v4 v4.7.2
+	gorm.io/driver/mysql v1.3.4
+	gorm.io/gorm v1.23.7
 )
 
 require (
@@ -21,6 +23,4 @@ require (
 	golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f // indirect
 	golang.org/x/sys v0.0.0-20211103235746-7861aae1554b // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gorm.io/driver/mysql v1.3.4 // indirect
-	gorm.io/gorm v1.23.7 // indirect
 )
