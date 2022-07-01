@@ -3,9 +3,14 @@ package main
 import (
 	"app/config"
 	"app/routes"
+	"github.com/labstack/echo/v4"
 )
 
 func main() {
-	config.Config()
-	_ = routes.Routes().Run("0.0.0.0:8080")
+	e := echo.New()
+
+	config.Config(e)
+	routes.Routes(e)
+
+	e.Logger.Fatal(e.Start(":8080"))
 }

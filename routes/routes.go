@@ -3,13 +3,11 @@ package routes
 import (
 	"app/controllers/auth"
 	"app/controllers/health"
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 )
 
-func Routes() *gin.Engine {
-	r := gin.New()
-
-	v1 := r.Group("/v1")
+func Routes(e *echo.Echo) {
+	v1 := e.Group("/v1")
 	{
 		// auth
 		v1Auth := v1.Group("/auth")
@@ -19,6 +17,4 @@ func Routes() *gin.Engine {
 
 		v1.GET("/health", health.Get)
 	}
-
-	return r
 }

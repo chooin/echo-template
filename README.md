@@ -1,4 +1,4 @@
-# gin-template
+# echo-template
 
 ### Installation
 

@@ -1,13 +1,10 @@
 package auth
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 	"net/http"
 )
 
-func Login(c *gin.Context)  {
-	 c.JSON(http.StatusOK, gin.H{
-		"message": "OK",
-		"gin_mode": gin.Mode(),
-	})
+func Login(e echo.Context) error {
+	return e.String(http.StatusOK, "Halo")
 }

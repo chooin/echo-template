@@ -1,12 +1,16 @@
 package health
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 	"net/http"
 )
 
-func Get(c *gin.Context)  {
-	c.JSON(http.StatusOK, gin.H{
-		"status": "UP",
+type Result struct {
+	Status string `json:"status"`
+}
+
+func Get(e echo.Context) error {
+	return e.JSON(http.StatusOK, &Result{
+		Status: "UP",
 	})
 }
