@@ -15,3 +15,9 @@ go run main.go
 # start server with dotenv files
 MODE=.env.example go run main.go
 ```
+
+### Build
+
+```shell
+make build
+```
