@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"app/controllers/auth"
-	"app/controllers/health"
-	"app/controllers/users"
+	"app/api/auth"
+	"app/api/health"
+	"app/api/users"
 	"github.com/labstack/echo/v4"
 )
 
