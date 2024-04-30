@@ -11,7 +11,7 @@ func Get(c echo.Context) error {
 	userId := c.Param("id")
 
 	var user models.User
-	pkg.DB().Model(&models.User{}).Where("id = ?", userId).First(&user)
+	pkg.MySQL().Model(&models.User{}).Where("id = ?", userId).First(&user)
 
 	return response.Ok(c, user)
 }
