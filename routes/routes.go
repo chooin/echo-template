@@ -15,13 +15,11 @@ func Routes(e *echo.Echo) {
 		{
 			v1Auth.POST("/login", auth.Login)
 		}
-
 		// users
 		v1Users := v1.Group("/users")
 		{
 			v1Users.GET("/:id", users.Get)
 		}
-
 		v1.GET("/health", health.Get)
 	}
 }

@@ -2,29 +2,26 @@ package config
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/labstack/echo/v4"
 	"os"
 	"strconv"
 )
 
-func Config(e *echo.Echo) {
-	env := os.Getenv("MODE")
-	if env == "" {
-		if err := godotenv.Load(".env"); err != nil {
-			panic("Failed to load dotenv")
-		}
+var AppDebug bool
+
+func init() {
+	var err error
+
+	mode := os.Getenv("MODE")
+	if mode == "" {
+		panic("failed to load dotenv")
 	} else {
-		if err := godotenv.Load(env); err != nil {
-			panic("Failed to load dotenv")
+		if err = godotenv.Load(mode); err != nil {
+			panic("failed to load dotenv")
 		}
 	}
-	appDebug, err := strconv.ParseBool(os.Getenv("APP_DEBUG"))
-	if err == nil {
-		if appDebug {
-			e.Debug = true
-		}
-	} else {
-		e.Debug = true
+
+	AppDebug, err = strconv.ParseBool(os.Getenv("APP_DEBUG"))
+	if err != nil {
+		panic("missing APP_DEBUG in .env file")
 	}
-	e.Debug = false
 }

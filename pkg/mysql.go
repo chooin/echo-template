@@ -19,7 +19,7 @@ func MySQL() *gorm.DB {
 		Logger: logger.Default.LogMode(logger.Info),
 	})
 	if err != nil {
-		panic("Failed to connect database")
+		panic("Failed to connect MySQL database")
 	}
 	return client
 }

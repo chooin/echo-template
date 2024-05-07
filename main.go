@@ -9,11 +9,8 @@ import (
 
 func main() {
 	e := echo.New()
-
-	config.Config(e)
+	e.Debug = config.AppDebug
 	routes.Routes(e)
-
 	e.Use(middleware.CORS())
-
 	e.Logger.Fatal(e.Start(":8080"))
 }
