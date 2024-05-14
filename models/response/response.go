@@ -24,11 +24,9 @@ type ExceptionResponse struct {
 
 func Ok(c echo.Context, data any, code ...int) error {
 	httpStatus := http.StatusOK
-
 	if len(code) > 0 && code[0] >= 200 && code[0] < 300 {
 		httpStatus = code[0]
 	}
-
 	return c.JSON(httpStatus, data)
 }
 
