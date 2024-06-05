@@ -1,4 +1,4 @@
-package pkg
+package mysql
 
 import (
 	"app/config"
@@ -8,7 +8,12 @@ import (
 	"os"
 )
 
-func MySQL() *gorm.DB {
+var Client *gorm.DB
+
+func init() {
+	if os.Getenv("DB_HOST") == "" {
+		return
+	}
 	var logLevel logger.LogLevel
 	if config.AppDebug {
 		logLevel = logger.Info
@@ -28,5 +33,5 @@ func MySQL() *gorm.DB {
 	if err != nil {
 		panic("Failed to connect MySQL database")
 	}
-	return client
+	Client = client
 }
