@@ -19,21 +19,17 @@ type Error struct {
 
 func Ok(c echo.Context, data any, code ...int) error {
 	httpStatus := http.StatusOK
-
 	if len(code) > 0 && code[0] >= 200 && code[0] < 300 {
 		httpStatus = code[0]
 	}
-
 	return c.JSON(httpStatus, data)
 }
 
 func ClientException(c echo.Context, message string, data any, code ...int) error {
 	httpStatus := http.StatusBadRequest
-
 	if len(code) > 0 && code[0] >= 400 && code[0] < 500 {
 		httpStatus = code[0]
 	}
-
 	return c.JSON(httpStatus, &Response{
 		Message: message,
 		Data:    data,
