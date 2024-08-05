@@ -25,6 +25,10 @@ func Ok(c echo.Context, data any, code ...int) error {
 	return c.JSON(httpStatus, data)
 }
 
+func NoContent(c echo.Context) error {
+	return c.NoContent(http.StatusNoContent)
+}
+
 func ClientException(c echo.Context, message string, data any, code ...int) error {
 	httpStatus := http.StatusBadRequest
 	if len(code) > 0 && code[0] >= 400 && code[0] < 500 {
